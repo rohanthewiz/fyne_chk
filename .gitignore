@@ -1,0 +1,16 @@
+.idea/
+
+fyne_chk
+
+
+- In most operating systems
+ . -> current dir
+ .. -> parent dir
+
+- git manages changes
+
+- use the command help `git add --help`
+- man git; man ls
+
+- Do a basic Unix Shell tutorial
+- Make an alias for `git add -A`
