@@ -1,34 +1,29 @@
 package main
 
 import (
-	"image/color"
-
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
-	"fyne.io/fyne/v2/layout"
+	"fyne.io/fyne/v2/widget"
 )
 
 func main() {
 	myApp := app.New()
-	w := myApp.NewWindow("Sruthi's App")
+	w := myApp.NewWindow("Entry Widget")
+
 	w.Resize(fyne.Size{
 		Width:  500,
 		Height: 500,
 	})
 
-	top := canvas.NewText("top bar", color.RGBA{
-		R: 250,
-		G: 20,
-		B: 250,
-		A: 0,
-	})
-	left := canvas.NewText("left", color.White)
-	middle := canvas.NewText("content", color.White)
+	lbl := widget.NewLabel("Text Entry")
+	in := widget.NewEntry()
+	in.SetPlaceHolder("Enter text...")
+	saveBtn := widget.NewButton("Save",
+		func() {println("You entered:", in.Text)})
 
-	content := container.New(layout.NewBorderLayout(top, nil, left, nil),
-		top, left, middle)
+	content := container.NewVBox(lbl, in, saveBtn)
+
 	w.SetContent(content)
 	w.ShowAndRun()
 }
